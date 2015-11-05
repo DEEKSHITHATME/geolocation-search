@@ -1,0 +1,75 @@
+
+
+doctype html
+html
+  head
+    meta(name='viewport', content='initial-scale=1.0, user-scalable=no')
+    meta(charset='utf-8')
+    title NodeJS with Google Maps
+    style(type='text/css').
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false')
+    script(src="javascripts/locate.js")
+    //- script(src="javascript/map1.js")
+    script(type='text/javascript', src='javascripts/map1.js')
+    link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+  body(onload='ReverseGeocode.Init()')
+    
+    h1.jumbotron(class="text-center") Welcome to Geolocation
+    .btn-toolbar
+      div.col-md-4
+      button(type='button',onclick="window.location.href='/add'", class="btn btn-info")  <span class="glyphicon glyphicon-plus-sign"></span>  add documents
+      button(onclick="window.location.href='/search'", class="btn btn-info") <span class="glyphicon glyphicon-search"></span> search here
+    br
+  
+
+
+    div#mapa(style='width:50%; height:50%')
+   
+
+    form.form-horizontal
+        .form-group
+          //- label.control-label.col-xs-1(for='Latitude') Latitude:
+          .col-xs-2
+            input#Latitude.form-control(type='text', placeholder='Enter Latitude', name="lat")
+        
+          //- label.control-label.col-xs-1(for='Longitude') Longitude
+          .col-xs-2
+            input#Longitude.form-control(type='text', placeholder='Enter Longitude', name="lon")
+
+          //- .col-xs-offset-1.col-xs-3
+          button.btn.btn-primary(type='button', onclick='ReverseGeocode.ReverseCode()') Check Location
+    table.table(border)
+      tr
+        
+        th Title
+        th description
+        th location
+      - items.forEach(function(find){
+      tr
+      
+        td=find.title
+        td=find.description
+        td=find.loc
+      
+      - });
+       
+
+
+   
+
+   
+
+
+
+
+
+
+
+
+
+
+
+

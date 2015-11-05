@@ -1,0 +1,49 @@
+
+
+doctype html
+html
+  head
+    meta(name='viewport', content='initial-scale=1.0, user-scalable=no')
+    meta(charset='utf-8')
+    title added data
+  
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+  body
+    .btn-toolbar
+      div.col-md-4
+      button(type='button',onclick="window.location.href='/'", class="btn btn-info")  <span class="glyphicon glyphicon-home"></span>  Go home
+      button(onclick="window.location.href='/search'", class="btn btn-info") <span class="glyphicon glyphicon-search"></span> search here
+    h1.jumbotron(class="text-center") First 30 documents added are...
+    table.table(border)
+      tr
+        
+        th Title
+        th description
+        th location
+      - items.forEach(function(find){
+      tr
+      
+        td=find.title
+        td=find.description
+        td=find.loc
+      
+      - });
+       
+
+
+   
+
+   
+
+
+
+
+
+
+
+
+
+
+
+

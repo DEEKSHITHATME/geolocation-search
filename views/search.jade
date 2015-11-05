@@ -1,0 +1,53 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='initial-scale=1.0, user-scalable=no')
+    meta(charset='utf-8')
+    title NodeJS with Google Maps
+    
+    script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false')
+    //- script(src="javascripts/locate.js")
+    link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+  body(onload='ReverseGeocode.Init()')
+
+    form(role="form", method="post")
+        .form-group
+          label(for="title") Title:
+          input.form-control(type="text", name="title")
+        .form-group
+          label(for="lon") Longitude:
+          input#Longitude.form-control(type="text", name="lon")
+        .form-group
+          label(for="lat") Latitude:
+          input#Latitude.form-control(type="text", name="lat")
+        button.btn.btn-default(type="submit",onclick="ReverseGeocode.ReverseCode()") Submit
+    br
+       
+    button(onclick="window.location.href='/'", class="btn btn-info") <span class="glyphicon glyphicon-home"></span> Click here to destroy cookies and enter home page to get search page with first 30 documents
+    br
+    br
+    p <strong>otherwise search for another document bt entering different document.searched document will be stored as cookie</strong>
+    
+    
+
+
+
+    table.table(border)
+      tr
+        th ID
+        th Title
+        th description
+        th location
+      - items.forEach(function(find){
+      tr
+        td=find._id
+        td=find.title
+        td=find.description
+        td=find.loc
+      
+      - });
+    
+
+    //- #mapa(style='width:50%; height:50%')
+    
+     
